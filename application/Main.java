@@ -34,12 +34,19 @@ public class Main {
         }
         System.out.println("====================================");
     }
+    /*
+        Method that randomize the value readed
+    */
     public static Double sensorRead() {
         Random generatorRandom = new Random();
 
         double valueRead = 10 + (100 - 10) * generatorRandom.nextDouble();
         return valueRead;
     }
+
+    /*
+        Method that read the values and will output if its normal or not
+    */
 
     public static void dataSecurityValidation(String sensorName, double temperatureValue, double minimum, double maximum) {
         System.out.printf("Sensor: %s | Actual value: %.2f %n" , sensorName, temperatureValue);
