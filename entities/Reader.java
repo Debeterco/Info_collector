@@ -8,9 +8,7 @@ public class Reader extends Sensor{
         super(sensorName, sensorValue);
     }
 
-    /*
-        Method that randomize the value readed
-    */
+    //  Method that randomize the value readed
     public static Double sensorRead() {
         Random generatorRandom = new Random();
             

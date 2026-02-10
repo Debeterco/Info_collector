@@ -23,9 +23,7 @@ public class Sensor {
         this.sensorValue = sensorValue;
     }
 
-    /*
-        Method that read the values and will output if its normal or not
-    */
+    // Method that read the values and will output if its normal or not
     public void dataSecurityValidation() {
         System.out.printf("Sensor: %s | Actual value: %.2f %n" , getSensorName(), getSensorValue());
         

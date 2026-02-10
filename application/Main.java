@@ -27,7 +27,6 @@ public class Main {
             double temperatureValue = Reader.sensorRead();
 
             Sensor sensor = new Sensor("Legal", temperatureValue);
-            
             sensor.dataSecurityValidation();
 
             try {
