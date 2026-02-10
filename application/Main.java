@@ -1,7 +1,8 @@
 package application;
 
+import entities.Reader;
+import entities.Sensor;
 import java.util.Locale;
-import java.util.Random;
 
 /* 
     Project: Data Collector of Automation
@@ -23,9 +24,12 @@ public class Main {
         for (int i = 1; i <= 5; i++) {
             System.out.printf("Reading the data process - Cycle %d %n", i);
 
-            double temperatureValue = sensorRead();
+            double temperatureValue = Reader.sensorRead();
 
-            dataSecurityValidation("OVEN", temperatureValue, 20, 80);
+            Sensor sensor = new Sensor("Legal", temperatureValue);
+            
+            sensor.dataSecurityValidation();
+
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
@@ -33,28 +37,5 @@ public class Main {
             }
         }
         System.out.println("====================================");
-    }
-    /*
-        Method that randomize the value readed
-    */
-    public static Double sensorRead() {
-        Random generatorRandom = new Random();
-
-        double valueRead = 10 + (100 - 10) * generatorRandom.nextDouble();
-        return valueRead;
-    }
-
-    /*
-        Method that read the values and will output if its normal or not
-    */
-
-    public static void dataSecurityValidation(String sensorName, double temperatureValue, double minimum, double maximum) {
-        System.out.printf("Sensor: %s | Actual value: %.2f %n" , sensorName, temperatureValue);
-        
-        if (temperatureValue >= minimum && temperatureValue <= maximum) {
-            System.out.println(">> NORMAL OPERATION <<");
-        } else {
-            System.out.println(">> OUT OF THE SECURITY LEVEL <<");
-        }
     }
 }
