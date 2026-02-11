@@ -1,78 +1,125 @@
-# Industrial Data Collector – Java
+# Info Collector
 
 ## 📌 Project Overview
 
-**Industrial Data Collector** is a simple Java-based application designed to simulate an **industrial monitoring system**.  
-The project focuses on **data collection, processing, and validation**, following basic concepts used in industrial automation environments.
+**Info Collector** is a Java application that simulates an industrial monitoring system.  
+The project follows a simple object-oriented structure and demonstrates how sensor data can be collected, processed, and validated in an automation context.
 
-The system simulates temperature readings from an industrial sensor and validates whether the values are within a predefined safe range.
+The system simulates temperature readings from an industrial sensor and validates them against predefined safety limits.
 
 ---
 
 ## 🎯 Objectives
 
 - Simulate industrial sensor data collection  
-- Process temperature values  
-- Validate data against safety thresholds  
-- Display system status in real time  
+- Apply validation rules to sensor readings  
+- Structure the project using Object-Oriented Programming  
+- Separate responsibilities between application logic and domain entities  
+
+---
+
+## 🏗️ Project Structure
+
+Info_collector/
+│
+├── application/
+│ └── Main.java
+│
+├── entities/
+│ ├── Sensor.java
+│ └── Reader.java
+│
+└── README.md
+
+
+### 📦 application
+Contains the entry point of the program (`Main.java`), responsible for:
+- Controlling execution cycles
+- Calling sensor reading methods
+- Triggering validation logic
+
+### 📦 entities
+Contains the domain classes:
+
+- **Sensor.java**
+  - Represents a sensor entity
+  - Stores sensor data and limits
+  - Encapsulates validation logic
+
+- **Reader.java**
+  - Responsible for simulating sensor data generation
+  - Uses random values to mimic real industrial readings
 
 ---
 
 ## ⚙️ How It Works
 
-1. The system runs in **5 reading cycles**
-2. In each cycle:
-   - A random temperature value is generated
-   - The value is validated against a minimum and maximum limit
-   - The system reports whether the operation is safe
-3. A **2-second delay** is applied between cycles to simulate real-time monitoring
+1. The system runs multiple reading cycles.
+2. A simulated temperature value is generated.
+3. The value is validated against a minimum and maximum threshold.
+4. The system prints whether the operation is within safe limits.
+5. A delay simulates real-time monitoring behavior.
 
 ---
 
-## 🧪 Sensor Simulation
+## 🧪 Sensor Configuration
 
-- **Sensor name:** OVEN  
-- **Temperature range (simulated):** 10°C to 100°C  
-- **Safe operating range:** 20°C to 80°C  
+- **Sensor Type:** OVEN  
+- **Simulated Range:** 10°C to 100°C  
+- **Safe Operating Range:** 20°C to 80°C  
 
 ---
 
-## ✅ Validation Logic
+## ✅ Validation Rule
 
-- If the temperature is **within the safe range**, the system reports:
+A reading is considered safe if:
 
-        NORMAL OPERATION <<
+minimum <= value <= maximum
 
-- If the temperature is **outside the safe range**, the system reports:
 
-        OUT OF THE SECURITY LEVEL <<
-
+If the value is outside this range, the system reports an alert condition.
 
 ---
 
 ## 🛠️ Technologies Used
 
 - Java
-- `java.util.Random` for sensor simulation
-- `java.util.Locale` for numeric formatting
+- Object-Oriented Programming (OOP)
+- `java.util.Random`
+- `java.lang.Thread`
 
 ---
 
 ## ▶️ How to Run
 
 1. Clone the repository:
- ```bash
- git clone https://github.com/your-username/your-repository.git
+   ```bash
+   git clone https://github.com/Debeterco/Info_collector.git
 
-    Compile the program:
+    Navigate to the project directory:
 
-javac application/Main.java
+cd Info_collector
 
-Run the application:
+Compile the project:
+
+javac application/Main.java entities/*.java
+
+Run:
 
     java application.Main
 
-📂 Project Structure
+🚀 Possible Improvements
 
-application/
- └── Main.java
+    Add support for multiple sensor types
+
+    Implement logging system (file-based)
+
+    Introduce real hardware integration (ESP32 / Arduino)
+
+    Add exception handling for invalid readings
+
+    Create a simple dashboard interface
+
+📄 License
+
+This project is licensed under the MIT License.

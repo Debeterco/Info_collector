@@ -10,7 +10,6 @@ import java.util.Locale;
         -   Collect;
         -   Treatment;
         -   Industrial data validation.
-    
 */
 
 public class Main {
